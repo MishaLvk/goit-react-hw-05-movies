@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getFilms } from 'services/Api';
 import { StyleReviews } from './Reviews.styled';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { id } = useParams();
   const [info, setinfo] = useState([]);
 
@@ -45,3 +45,5 @@ export const Reviews = () => {
     </>
   );
 };
+
+export default Reviews;

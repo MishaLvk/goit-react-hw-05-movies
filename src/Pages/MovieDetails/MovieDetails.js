@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
 import { Outlet, useParams, Link, useLocation } from 'react-router-dom';
 import { getFilms } from 'services/Api';
 import {
@@ -9,7 +9,7 @@ import {
   Additional,
 } from './MovieDetails.styled';
 
-export const MoviesDetailis = () => {
+const MoviesDetails = () => {
   const { id } = useParams();
   const [info, setinfo] = useState('');
   const location = useLocation();
@@ -49,7 +49,7 @@ export const MoviesDetailis = () => {
 
   return (
     <Wrapper>
-      <PreviousPage to={back.current ?? ''}>Go back</PreviousPage>
+      <PreviousPage to={back.current ?? '/'}>Go back</PreviousPage>
       {info !== '' && (
         <>
           <MovieCard>
@@ -82,9 +82,13 @@ export const MoviesDetailis = () => {
               ))}
             </ul>
           </Additional>
-          <Outlet />
+          <Suspense fallback={null}>
+            <Outlet />
+          </Suspense>
         </>
       )}
     </Wrapper>
   );
 };
+
+export default MoviesDetails;

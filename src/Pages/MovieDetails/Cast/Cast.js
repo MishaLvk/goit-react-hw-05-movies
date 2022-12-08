@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import { getFilms } from 'services/Api';
 import { Gallery, ImageItem, Image } from './Cast.styled';
 import image from '../../../Image/advertising.png';
-export const Cast = () => {
+
+const Cast = () => {
   const { id } = useParams();
   const [info, setinfo] = useState([]);
   const pathname = `movie/${id}/credits`;
@@ -46,3 +47,5 @@ export const Cast = () => {
     </Gallery>
   );
 };
+
+export default Cast;
