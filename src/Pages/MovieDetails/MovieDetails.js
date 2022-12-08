@@ -38,7 +38,7 @@ export const MoviesDetailis = () => {
         const Films = await getFilms({ pathname, controller });
         setinfo(Films.data);
       } catch (error) {
-        console.log('помилка запиту');
+        return;
       }
     }
     select();

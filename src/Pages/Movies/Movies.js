@@ -30,7 +30,7 @@ export const Movies = () => {
         }
         setArrayFilms(Films.data.results);
       } catch (error) {
-        console.log('помилка запиту');
+        return;
       }
     }
     select();

@@ -5,7 +5,7 @@ import { TrendingList, TrendingLink, Title } from './Home.styled';
 
 export const HomePage = () => {
   const [ArrayFilms, setArrayFilms] = useState([]);
-  const pathname = 'trending/all/day';
+  const pathname = 'trending/movie/day';
   const location = useLocation();
   useEffect(() => {
     const controller = new AbortController();
@@ -14,7 +14,7 @@ export const HomePage = () => {
         const Films = await getFilms({ pathname, controller });
         setArrayFilms(Films.data.results);
       } catch (error) {
-        console.log('помилка запиту');
+        return;
       }
     }
     select();

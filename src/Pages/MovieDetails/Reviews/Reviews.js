@@ -15,7 +15,7 @@ export const Reviews = () => {
         const Films = await getFilms({ pathname, controller });
         setinfo(Films.data.results);
       } catch (error) {
-        console.log('помилка запиту');
+        return;
       }
     }
     select();

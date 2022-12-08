@@ -15,7 +15,7 @@ export const Cast = () => {
         const Films = await getFilms({ pathname, controller });
         setinfo(Films.data.cast);
       } catch (error) {
-        console.log('помилка запиту');
+        return;
       }
     }
     select();
@@ -24,11 +24,6 @@ export const Cast = () => {
     };
   }, [pathname]);
 
-  if (info === []) {
-    console.log('zav');
-    return;
-  }
-  console.log(image);
   return (
     <Gallery>
       {info.map(({ name, profile_path, id, cast_id }) => (
